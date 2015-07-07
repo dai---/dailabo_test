@@ -8,6 +8,7 @@ gem 'mysql2'
 # stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
 
 # JavaScript
 gem 'uglifier', '>= 1.3.0'
@@ -23,6 +24,9 @@ gem 'jbuilder', '~> 2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# 認証
+gem 'devise'
 
 # form
 gem 'simple_form'
@@ -81,6 +85,7 @@ group :development, :test do
   gem 'rack-mini-profiler'     #   DBへのアクセスとかViewの表示速度とかをWebページ上に表示してくれる
   gem 'bullet'                 #   N+1問題を起こしている箇所を検出して教えてくれる
   gem 'letter_opener_web'      #   開発中に送信したメールを実際には送信せずに、ブラウザから見ることができる。
+  gem 'guard-livereload'       #   特定の拡張子のファイルを修正し保存するとブラウザがリロードされる
 end
 
 group :development do

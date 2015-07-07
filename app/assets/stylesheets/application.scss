@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+// "bootstrap-sprockets" は "bootstrap"系のものより前にインポートすること
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// ===================================================================
+// 各SCSSファイルのインポート
+// ===================================================================
+
+// 設定用
+@import "setting";
+@import "material-color";
+
+// リセットCSS、フォントサイズ
+@import "reset";
+
+// ミックスイン、@extend、CSS3など
+@import "mixin";
+
+// メインスタイル - layout.scssはメイン内でインポート
+@import "main";
+
+// 印刷用スタイル
+@import "print";
+
+// ===================================================================
+

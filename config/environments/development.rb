@@ -40,6 +40,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # rack-dev-mark
-  config.rack_dev_mark.enable = true
+  config.rack_dev_mark.enable = false
+
+  # better_errors(vagrant用)
+  BetterErrors::Middleware.allow_ip! "192.168.33.1"
 
 end
