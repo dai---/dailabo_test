@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New App', new_app_path, class: "btn btn-lg btn-default" %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center">
+      <%= paginate @apps %>
+    </div>
+
+    <div class="text-right">
+      <%= page_entries_info @apps %>
+    </div>
+  </div>
+</div>
+
+<% if false %>ここからコメント
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>アプリ名</th>
+          <th>URL</th>
+          <th>ストアID</th>
+          <th>バナーurl</th>
+          <th>アイコン</th>
+          <th colspan="3">更新</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @apps.each do |app| %>
+        <tr>
+          <td><%= app.name %></td>
+          <td><%= app.url %></td>
+          <td><%= app.store_id %></td>
+          <td><%= app.banner_url %></td>
+          <td><%= link_to image_tag(banner_url(app.url), lazy: true), app.url %></td>
+          <td><%= link_to 'Show', app, class: "btn btn-lg btn-default" %></td>
+          <td><%= link_to 'Edit', edit_app_path(app), class: "btn btn-lg btn-default" %></td>
+          <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg btn-default" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+ここまでコメント<% end %>
+
+<div style="">
+<% @apps.each do |app| %>
+        <ul class="col-xs-3" style="border: double 2px #0000ff; display: block;">
+          <li><%= app[:id] %></li>
+          <li><%= app[:name] %></li>
+          <li><%= image_tag app[:banner_url], lazy: true, class: "lazy" %></li>
+        </ul>
+        <% end %>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>アプリ名</th>
+          <th>アイコン</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @apps.each do |app| %>
+        <tr>
+          <td><%= app[:id] %></td>
+          <td><%= app[:name] %></td>
+          <td><%= image_tag app[:banner_url], lazy: true, class: "lazy" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center">
+      <%= paginate @apps %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New App', new_app_path, class: "btn btn-lg btn-default" %>
+
+<% if false %>ここからコメント
+<script type="text/javascript">
+$(function(){
+  $("img").lazyload({
+    effect : "fadeIn"
+  });
+
+});
+</script>
+ここまでコメント<% end %>

@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
+gem 'lazyload-rails'
+gem 'jquery-turbolinks'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -38,6 +40,8 @@ gem 'font-awesome-rails'
 # model
 gem 'paranoia'
 
+# スクレイピング
+gem 'nokogiri'
 
 # railsの定数管理
 gem 'rails_config'

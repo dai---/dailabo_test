@@ -11,8 +11,24 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require jquery.lazyload
+//= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+  $("img").lazyload({
+    effect : "fadeIn"
+  });
+
+  $("img.lazy").lazyload();
+});
+
+$(function() {
+    $("img.lazy").lazyload({
+        event : "sporty"
+    });
+});
