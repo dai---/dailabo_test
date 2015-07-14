@@ -14,7 +14,18 @@
   </div>
 </div>
 
-<% if false %>ここからコメント
+<div class="box">
+  <% @apps.each do |app| %>
+    <%= app.id %>
+    <%= app.name %>
+    <% if app.banner_url.present? %>
+      <%= link_to lazy_image_tag(app.banner_url, class: "hoge"), app.url %>
+    <% else %>
+      <%= link_to lazy_image_tag(banner_url(app.url), class: "hoge"), app.url %>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="row">
   <div class="col-xs-12">
     <table class="table table-striped table-bordered">
@@ -36,7 +47,11 @@
           <td><%= app.url %></td>
           <td><%= app.store_id %></td>
           <td><%= app.banner_url %></td>
-          <td><%= link_to image_tag(banner_url(app.url), lazy: true), app.url %></td>
+          <% if app.banner_url.present? %>
+            <td><%= link_to lazy_image_tag(app.banner_url, class: "hoge"), app.url %></td>
+          <% else %>
+            <td><%= link_to lazy_image_tag(banner_url(app.url), class: "hoge"), app.url %></td>
+          <% end %>
           <td><%= link_to 'Show', app, class: "btn btn-lg btn-default" %></td>
           <td><%= link_to 'Edit', edit_app_path(app), class: "btn btn-lg btn-default" %></td>
           <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg btn-default" %></td>
@@ -46,17 +61,18 @@
     </table>
   </div>
 </div>
-ここまでコメント<% end %>
 
+<% if false %>ここからコメント
 <div style="">
 <% @apps.each do |app| %>
         <ul class="col-xs-3" style="border: double 2px #0000ff; display: block;">
           <li><%= app[:id] %></li>
           <li><%= app[:name] %></li>
-          <li><%= image_tag app[:banner_url], lazy: true, class: "lazy" %></li>
+          <li><%= image_tag app[:banner_url], class: "hoge" %></li>
         </ul>
         <% end %>
 </div>
+ここまでコメント<% end %>
 
 <div class="row">
   <div class="col-xs-12">
@@ -73,7 +89,7 @@
         <tr>
           <td><%= app[:id] %></td>
           <td><%= app[:name] %></td>
-          <td><%= image_tag app[:banner_url], lazy: true, class: "lazy" %></td>
+          <td><%= lazy_image_tag app[:banner_url], class: "hoge" %></td>
         </tr>
         <% end %>
       </tbody>
@@ -93,13 +109,9 @@
 
 <%= link_to 'New App', new_app_path, class: "btn btn-lg btn-default" %>
 
-<% if false %>ここからコメント
 <script type="text/javascript">
 $(function(){
-  $("img").lazyload({
-    effect : "fadeIn"
-  });
-
+  $("img.lazy").lazyload({ effect: 'fadeIn', threshold: '200' });
+  console.log('aaaaaaaaa')
 });
 </script>
-ここまでコメント<% end %>

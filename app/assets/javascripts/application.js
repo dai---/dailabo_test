@@ -19,16 +19,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
-  $("img").lazyload({
-    effect : "fadeIn"
-  });
-
-  $("img.lazy").lazyload();
-});
 
 $(function() {
-    $("img.lazy").lazyload({
-        event : "sporty"
-    });
+
 });
